@@ -1,0 +1,72 @@
+#author ggmon
+#+STARTUP: showall
+#+STARTUP: showeverything
+#author ggmon
+#title Ajax
+<contents>
+* Ajax
+
+
+
+** func_to_call_XMLHttpRequest_or_ActiveXObject
+=Sat May  3 16:51:43 2008=
+
+The function below shows how to call create basic asynchronous request objects
+
+<verse>
+function loadXMLDocNew(url) {
+
+	// branch for native XMLHttpRequest object
+    if (window.XMLHttpRequest) {
+        req = new XMLHttpRequest();
+        req.onreadystatechange = processResult;
+        req.open("GET", url, true);
+        req.send(null);
+    // branch for IE/Windows ActiveX version
+    } else if (window.ActiveXObject) {
+        req = new ActiveXObject("Microsoft.XMLHTTP");
+        if (req) {
+            req.onreadystatechange = processResult;
+            req.open("GET", url, true);
+            req.send();
+        }
+    }
+}
+
+#+END_EXAMPLE
+
+----
+
+** process_request
+=Sat May  3 16:53:52 2008=
+
+The function shows how to process the request
+
+#+BEGIN_EXAMPLE
+function processResult() 
+{
+	
+    // only if req shows "complete"
+    if (req.readyState == 4) {
+        // only if "OK"
+        if (req.status == 200) {
+            // ...processing statements go here...
+            var result;
+            
+            result = req.responseText.trim();
+            
+    		if(result!="true")
+    			return false;
+    		else
+    			return true;		
+                                    
+        } else {
+            alert("There was a problem retrieving the XML data:\n\n" + req.statusText);
+            return false;
+        }
+    }
+}
+
+#+END_EXAMPLE
+
+----

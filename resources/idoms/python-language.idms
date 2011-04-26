@@ -1,0 +1,47 @@
+#author ggmon
+#title Python-language
+<contents>
+* Python-language
+
+
+
+** if_statement
+=Tue Apr  8 21:52:39 2008=
+
+The if statement in python
+
+#+BEGIN_EXMAPLE
+
+if x < 0:
+    x = 0
+    print 'Negative changed to zero'
+elif x == 0:
+    print 'Zero'
+elif x == 1:
+    print 'Single'
+else:
+    print 'More'
+
+</verse>
+
+----
+
+** for_statement
+=Tue Apr  8 21:57:31 2008=
+
+for statement in python
+
+#+BEGIN_EXMAPLE
+
+>>> a = ['cat', 'window', 'defenstrate']
+>>> for x in a:
+...   print x
+... 
+cat
+window
+defenstrate
+>>> 
+#+END_EXMAPLE
+
+----
+

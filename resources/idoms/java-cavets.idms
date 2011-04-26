@@ -1,0 +1,107 @@
+#author ggmon
+#title Java_Cavets
+<contents>
+* Java_Cavets
+
+
+** finalize_method
+=Wed Mar  5 08:16:46 2008=
+
+%When to Use Finalize method%
+
+#+BEGIN_EXMAPLE
+
+Finalize methods are invoked by the garbage collector prior to reclaiming the
+memory used by the object, which has the finalize method(). This means you do
+not know when the objects are going to be finalized. Avoid using finalize()
+method to realease non-memory resources like file handles, sockets, database
+connections etc. 
+</verse>
+
+----
+
+** is_a_AND_has_a
+=Wed Mar  5 08:33:06 2008=
+
+'Is a' and 'Has a' realtionship
+
+
+The 'is a' relationship is expressed with inheritance relationship and 'has a'
+is expressed with composition. Both iheritance and composition allow you to
+place sub-objects inside your new class.
+
+Iheritance is unidirectional, as House is a Builiding. But Builing is not a house. Iheritance used extends key word. 
+
+Compostion is used when a house has a Bathroom. Composition simply means using
+instance variables that refer to other objects. The class House will have an
+instance variable, which refers to the Bathroom Objects.
+
+
+Don't use inheritance just to get code reuse. If there is no 'is a' relationship then use composition for code reuse. Overuse of Implementation iheritance (uses the 'extends' keyword) can break all the subclasses, if the superclass is modified.
+
+Do not use inheritance just to get polymorphism. If there is no 'is a' relationship and all you want is polymorphism then use interface inheritance with composition, which gives you code reuse.
+
+----
+
+
+
+
+** enumerating_request_parameters
+=Wed Apr 23 18:30:42 2008=
+
+Displays all the request parameters
+
+#+BEGIN_EXMAPLE
+String pname = "";
+for (Enumeration e = request.getParameterNames() ; e.hasMoreElements() ;) {
+	     pname = (String) e.nextElement();
+        System.out.println(pname + ":" + request.getParameter(pname));
+
+}	
+
+
+</verse>
+
+----
+
+** date_format
+=Wed May 14 12:04:28 2008=
+
+The Date format uses Alphabets
+"yyyy.MM.dd G 'at' HH:mm:ss z"
+2001.07.04 AD at 12:08:56 PDT
+
+
+#+BEGIN_EXMAPLE
+      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+      Calendar now = Calendar.getInstance();
+
+      now.add(Calendar.DAY_OF_WEEK, + 1);
+
+      System.out.println(sdf.format(now.getTime()));
+
+</verse>
+
+----
+
+** date_calendar_in_java
+=Wed May 21 16:02:56 2008=
+
+Date and time in Java
+
+
+#+BEGIN_EXMAPLE
+java.util.Date - Represents a point in time.
+
+abstract java.util.Calendar, java.util.GregorianCalendar extends java.util.Calendar - Interpretation and manipulation of Dates.
+
+abstract java.util.TimeZone, java.util.SimpleTimeZone extends java.util.TimeZone - Representation of an arbitrary offset from Greenwich Mean Time (GMT), including information about applicable daylight savings rules.
+
+abstract java.text.DateFormat extends java.text.Format java.text.SimpleDateFormat extends java.text.DateFormat - Transformation into well-formatted, printable String and vice versa.
+
+java.text.DateFormatSymbols - Translation of the names of months, weekdays, etc., as an alternative to using the information from Locale.
+
+java.sql.Date extends java.util.Date, java.sql.Time extends java.util.Date, java.sql.Timestamp extends java.util.Date - Represent points in time, and also include proper formatting for use in SQL statements.
+
+#+END_EXMAPLE
+----

@@ -1,0 +1,48 @@
+#author ggmon
+#title Prototype
+<contents>
+* Prototype
+
+
+
+** Ajax_request
+=Wed May 14 11:54:37 2008=
+
+%Please Fill your Description%
+
+#+BEGIN_EXMAPLE
+var myAjax = new Ajax.Request(
+                              url,
+                              {
+                                  method:'get',
+                                  parameter:qstr,
+                                  onComplete: function response_on_whatever(response) {
+                                      
+                                      
+
+                                  }
+                              }
+                              );
+
+</verse>
+
+----
+
+** Ajax_updater
+=Wed May 14 11:55:49 2008=
+
+%Please Fill your Description%
+
+#+BEGIN_EXMAPLE
+var myAjax = new Ajax.Updater(
+					placeholder,
+					 url,
+					 {
+					 	method:'get',
+					 	parameters:qstr
+					 }
+					);
+
+#+END_EXMAPLE
+
+----

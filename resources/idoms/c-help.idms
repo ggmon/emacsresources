@@ -1,0 +1,31 @@
+#author ggmon
+#title c-help
+<contents>
+* c-help
+
+
+
+** integer_printf/scanf_Conversions
+=Sat Feb 16 20:20:49 2008=
+
+%Please Fill your Description%
+
+#+BEGIN_EXMAPLE
+......................................
+%Conversion.                   Uses  .
+-------------------------------------.
+%hd        . (signed) short int      .
+                                     
+%d         . (signed) int            .
+
+%ld        . (signed) long int       .
+
+%hu        . unsigned short int      .
+
+%u         . unsigned int            .
+
+%lu        . unsigned long int       .
+......................................
+#+END_EXMAPLE
+
+----

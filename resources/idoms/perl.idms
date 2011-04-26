@@ -1,0 +1,128 @@
+#author ggmon
+#title Perl_Tips
+<contents>
+* Perl_Tips
+
+
+
+** DataStructures
+=Fri Feb 15 00:30:34 2008=
+
+%Please Fill your Description%
+
+#+BEGIN_EXMAPLE
+#!/usr/bin/perl
+
+$scalar = 1;
+print "\$scalar ", $scalar, "\n";
+
+@list = (1,2,3,4);
+print "@list ", @list, "\n";
+
+$scalar = \@list;
+print "\$\$scalar ", @$scalar, "\n";
+
+$scalar = [1,2,3];
+print "\$\$scalar ", @$scalar, "\n";
+
+
+print $list[0], "\n";
+
+    
+%hash = ("one",1,"two");
+print "%hash ", %hash, "\n";
+print $hash{"one"};
+
+$scalar = {"one"=>1,
+           "two"=>2,
+           "three"=>3};
+print "\n";
+print $scalar->{"one"};
+               
+</verse>
+
+
+** morequirks
+=Fri Feb 15 00:39:34 2008=
+
+This is Just a Replacement
+
+#+BEGIN_EXMAPLE
+#!/usr/bin/perl
+
+$variab = "192:168:1:2";
+
+@arr = $variab  =~ /(\d{1,3}):(\d{1,3}):(\d{1,3}):(\d{1,3})/;
+
+for $arr (@arr){
+    print $arr;
+    print "\n"
+}
+
+
+$string = "this string contains the number 25.11.";
+
+$string =~ /-?(\d+)\.?(\d+)/;
+
+print $1;
+
+
+
+</verse>
+
+
+** Array_of_Arrays
+
+=Fri Feb 15 12:20:46 2008=
+
+You can see how array of arrays are created using perl
+
+#+BEGIN_EXMAPLE
+#!/usr/bin/perl
+
+# assign to our array, an array of array references
+@AOA = (
+    ["fred", "barney"],
+    ["george", "jane", "elroy"],
+    ["homer", "bart", "ggmon"]
+    );
+
+print $AOA[2][2]; # prints ggmon
+
+
+# assign a refrences to array of array references
+
+$ref_to_AoA = [
+    ["fred", "barney"],
+    ["george", "jane", "elroy"],
+    ["homer", "bart", "ggmon"]
+    ];
+
+print $ref_to_AoA->[2][2]; # prints ggmon
+
+
+# growing a array of arrays
+
+
+while (<>) {
+
+    @tmp = split;
+    push @AOA, [ @tmp ];
+}
+
+
+# spitting out Arrays of Arrays
+
+foreach $arr (@AOA) {
+
+    foreach $arr2 (@{$arr}) {
+
+        print $arr2 , " ";
+    }
+    
+    print "\n";
+}
+
+#+END_EXMAPLE
+
+----

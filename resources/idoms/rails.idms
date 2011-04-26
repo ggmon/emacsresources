@@ -1,0 +1,69 @@
+#author ggmon
+#title Rails
+<contents>
+* Rails
+
+
+
+** Virtual_Attributes
+=Thu Jan  8 15:17:17 2009=
+
+Keep your controllers clean and forms flexible by adding virtual
+attributes to your model. This very powerful technique allows you to
+create form fields which may not directly relate to the database.
+
+
+#+BEGIN_EXMAPLE
+
+
+
+
+
+</verse>
+
+----
+
+** javascript_on_client
+=Thu Jan  8 15:29:24 2009=
+
+Call Javascript function on the client
+
+#+BEGIN_EXMAPLE
+<%= link_to_function "Add a task" do |page|
+       page.insert_html :bottom, :tasks, :partial =>'task', :object => Taks.new     
+    end
+%>
+
+
+
+in the layout file you should have your  javascript includetag
+
+<%= javascript_include_tag :defaults %>
+
+
+</verse>
+
+----
+
+** helper_method
+=Thu Jan  8 15:37:12 2009=
+
+Helper Method for Project
+
+#+BEGIN_EXMAPLE
+
+Module ProjectsHelper
+ def add_task_link(name)
+   link_to_function name do |page|
+    page.insert_html :bottom, :tasks, :partial => 'task', :object=>Task.new
+   end
+  end
+end
+
+
+On the view call this like
+
+<%= add_task_link "Add a task" %>
+#+END_EXMAPLE
+
+----

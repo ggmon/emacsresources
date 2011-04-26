@@ -1,0 +1,57 @@
+#author ggmon
+#title java
+<contents>
+* java
+
+
+
+** a_typical_database_interaction
+=Sat May 17 16:40:48 2008=
+
+This is a the typical way to query and retrieve database from the database
+
+#+BEGIN_EXMAPLE
+
+id = -1;
+		
+Connection conn = null;
+PreparedStatement ps = null;
+		
+try {
+			
+    conn = DBConnection.getConnection();
+    String sql = "select * from pwr_sched_dev WHERE pwr_sched_dev_id=?";
+    ps = conn.prepareStatement(sql);
+    ps.setInt(1,id);
+			
+    ResultSet rs = null;
+    rs = ps.executeQuery();
+			
+    while (rs.next()) {
+				
+        id = rs.getInt("pwr_sched_dev_id");
+        name = rs.getString("name");
+        lastModified  = rs.getTimestamp("last_modified");
+				
+    }
+			
+			
+		
+} catch (SQLException sqle) {
+			
+    log.error("Error executing query:" + ps,sqle);
+} 
+
+try {
+			
+   if(ps != null)
+      ps.close();
+   if(conn != null)
+      conn.close();
+} catch (SQLException sqle) {
+    log.error("Eroor closing DB connction.",sqle);
+}
+	
+#+END_EXMAPLE
+
+----

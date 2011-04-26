@@ -1,0 +1,51 @@
+#author ggmon
+#title c-sdl
+<contents>
+* c-sdl
+
+
+
+** SDLINIT
+=Mon Feb 18 11:23:16 2008=
+
+This example givenbelow will try to show how the sdl is initialized to a screen
+
+#+BEGIN_EXMAPLE
+
+#include <SDL/SDL.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+  SDL_Surface *screen;
+  
+  /*Initilaize the video system and check for errors */
+
+  if(SDL_Init(SDL_INIT_VIDEO) != 0) {
+
+    printf("Unable to initilize SDL:%s\n", SDL_GetError());
+
+  }
+
+  atexit(SDL_Quit);
+
+  screen = SDL_SetVideoMode(640,480,16, SDL_FULLSCREEN);
+  
+  if(screen == NULL) {
+    printf("Unable to Set Video Mode %s\n", SDL_GetError());
+    
+    return 1;
+  }
+
+  
+  /* if we got this far, everything worked */
+
+  printf("Sucess!\n");
+
+
+}
+
+#+END_EXMAPLE
+
+----
